@@ -1,8 +1,22 @@
-import React from 'react';
-import './app.css';
+import React, { useState } from 'react';
+import styles from './app.module.css';
+import Card from './components/card';
 
 function App() {
-    return <h1>HELLO XD</h1>;
+    const [cardItems, setCardItems] = useState([
+        { id: 1, content: '😀' },
+        { id: 2, content: '😁' },
+        { id: 3, content: '😂' },
+        { id: 4, content: '😆' },
+        { id: 5, content: '🤣' },
+    ]);
+    return (
+        <div className={styles.bottom}>
+            {cardItems.map((items) => (
+                <Card content={items.content} />
+            ))}
+        </div>
+    );
 }
 
 export default App;
