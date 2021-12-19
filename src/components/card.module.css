@@ -1,9 +1,18 @@
 .card {
-    height: 150px;
-    width: 150px;
-    border-radius: 20px;
-    border: 1px solid black;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 2rem;
+    border: 1px solid whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 5rem;
+}
+
+.card_front {
+    background-color: salmon;
+}
+
+.card_back {
+    background-color: sandybrown;
 }
