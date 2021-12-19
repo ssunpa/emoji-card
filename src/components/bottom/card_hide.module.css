@@ -1,8 +1,8 @@
 .card {
     height: 10rem;
     width: 10rem;
-    border-radius: 2rem;
-    border: 1px solid whitesmoke;
+    border-radius: 1.5rem;
+    border: 0.4rem solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,8 +11,9 @@
 
 .card_front {
     background-color: salmon;
+    cursor: pointer;
 }
 
 .card_back {
-    background-color: sandybrown;
+    background-color: rgb(255, 190, 133);
 }

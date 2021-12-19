@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './app.module.css';
-import Card from './components/card';
+import CardHide from './components/bottom/card_hide';
+import CardShow from './components/top/card_show';
 
 function App() {
     const [cardItems, setCardItems] = useState([
@@ -8,14 +9,30 @@ function App() {
         { id: 2, content: '😁' },
         { id: 3, content: '😂' },
         { id: 4, content: '😆' },
-        { id: 5, content: '🤣' },
+        { id: 5, content: '😘' },
+        { id: 6, content: '😴' },
     ]);
+
+    const handleRandomItem = (items) => {
+        const randomNum = Math.floor(Math.random() * cardItems.length);
+        return items[randomNum];
+    };
+
     return (
-        <div className={styles.bottom}>
-            {cardItems.map((items) => (
-                <Card content={items.content} />
-            ))}
-        </div>
+        <>
+            <section className={styles.top}>
+                <span className={styles.title}>👇FIND ME!👇</span>
+                <CardShow
+                    show={handleRandomItem(cardItems)}
+                    key={cardItems.id}
+                />
+            </section>
+            <section className={styles.bottom}>
+                {cardItems.map((items) => (
+                    <CardHide hide={items.content} key={cardItems.id} />
+                ))}
+            </section>
+        </>
     );
 }
 

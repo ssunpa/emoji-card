@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
-import styles from './card.module.css';
+import styles from './card_hide.module.css';
 
-const Card = (props) => {
+const CardHide = (props) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const handleClick = () => {
-        setIsFlipped(!isFlipped);
+        setIsFlipped(true);
+        setTimeout(() => {
+            setIsFlipped(false);
+        }, 1500);
     };
 
     return (
@@ -18,14 +21,11 @@ const Card = (props) => {
                 ❓
             </button>
 
-            <button
-                onClick={handleClick}
-                className={`${styles.card} ${styles.card_back}`}
-            >
-                {props.content}
+            <button className={`${styles.card} ${styles.card_back}`}>
+                {props.hide}
             </button>
         </ReactCardFlip>
     );
 };
 
-export default Card;
+export default CardHide;
