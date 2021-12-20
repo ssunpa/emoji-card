@@ -10,10 +10,10 @@
 }
 
 .card_front {
-    background-color: salmon;
+    background-color: rgb(255, 181, 172);
     cursor: pointer;
 }
 
 .card_back {
-    background-color: rgb(255, 190, 133);
+    background-color: rgb(255, 206, 163);
 }
