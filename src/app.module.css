@@ -16,12 +16,6 @@
     justify-content: space-evenly;
 }
 
-.list {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
 .resetBtn {
     margin: 0 auto;
     cursor: pointer;
@@ -36,4 +30,9 @@
     border-radius: 1.5rem;
     border: 0.4rem solid black;
     font-size: 2rem;
+    transition: 200ms ease-in;
+}
+
+.resetBtn:hover {
+    transform: scale(1.1);
 }

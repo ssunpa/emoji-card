@@ -7,6 +7,11 @@
     justify-content: center;
     align-items: center;
     font-size: 5rem;
+    transition: 200ms ease-in;
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
 .card_front {
