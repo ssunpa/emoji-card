@@ -3,23 +3,22 @@ import ReactCardFlip from 'react-card-flip';
 import styles from './card_hide.module.css';
 
 const CardHide = (props) => {
-    const [isFlipped, setIsFlipped] = useState(false);
-
+    // const [isFlipped, setIsFlipped] = useState(props.isFlipped);
+    let isFlipped = props.isFlipped;
     const handleClick = () => {
-        handleMatch(props.show, props.hide);
+        isFlipped = !isFlipped;
+        console.log(isFlipped);
+        // setIsFlipped(true);
+        // if (props.hide.id === props.show.id) {
+        //     console.log('맞았당');
+        // } else {
+        //     console.log('아니당');
+        //     setTimeout(() => {
+        //         setIsFlipped(false);
+        //     }, 1300);
+        // }
     };
 
-    const handleMatch = (q, a) => {
-        setIsFlipped(true);
-        if (q.id === a.id) {
-            console.log('맞았당');
-        } else {
-            console.log('아니당');
-            setTimeout(() => {
-                setIsFlipped(false);
-            }, 1300);
-        }
-    };
     return (
         <>
             <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">

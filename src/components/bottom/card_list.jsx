@@ -4,10 +4,16 @@ import styles from './card_list.module.css';
 
 const CardList = (props) => {
     const cardList = [...props.cardItems];
+
     return (
         <div className={styles.list}>
             {cardList.map((items) => (
-                <CardHide show={props.show} hide={items} key={items.id} />
+                <CardHide
+                    isFlipped={props.isFlipped}
+                    show={props.show}
+                    hide={items}
+                    key={items.id}
+                />
             ))}
         </div>
     );

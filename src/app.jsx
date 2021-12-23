@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styles from './app.module.css';
-import CardHide from './components/bottom/card_hide';
 import CardList from './components/bottom/card_list';
 import CardShow from './components/top/card_show';
 import { emoji } from './data/emoji';
 
 function App() {
+    const [isFlipped, setIsFlipped] = useState(false);
+
     const [cardItems, setCardItems] = useState(emoji.slice(0, 6));
     const [showCard, setShowCard] = useState(
         emoji[Math.floor(Math.random() * 6)]
@@ -41,6 +42,7 @@ function App() {
     const handleReset = () => {
         const newList = handleRandomItems();
         handleRandomShowItem(newList);
+        setIsFlipped(false);
     };
     return (
         <>
@@ -50,7 +52,11 @@ function App() {
             </section>
             <section className={styles.bottom}>
                 <div>
-                    <CardList show={showCard} cardItems={cardItems} />
+                    <CardList
+                        isFlipped={isFlipped}
+                        show={showCard}
+                        cardItems={cardItems}
+                    />
                 </div>
                 <button onClick={handleReset} className={styles.resetBtn}>
                     RESET
