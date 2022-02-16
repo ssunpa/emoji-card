@@ -5,12 +5,11 @@ import CardShow from './components/top/card_show';
 import { emoji } from './data/emoji';
 
 function App() {
-    const [isFlipped, setIsFlipped] = useState(false);
-
     const [cardItems, setCardItems] = useState(emoji.slice(0, 6));
     const [showCard, setShowCard] = useState(
         emoji[Math.floor(Math.random() * 6)]
     );
+    const [showReset, setShowReset] = useState(false);
 
     const randomIdx = (items) => {
         const randomIdx = new Set();
@@ -28,7 +27,7 @@ function App() {
     const handleRandomItems = () => {
         const randomIdxArr = [...randomIdx(emoji)];
         const newItems = randomIdxArr.map((idx) => {
-            return emoji[idx];
+            return { ...emoji[idx], flipped: false };
         });
         setCardItems(newItems);
         return newItems;
@@ -42,7 +41,10 @@ function App() {
     const handleReset = () => {
         const newList = handleRandomItems();
         handleRandomShowItem(newList);
-        setIsFlipped(false);
+    };
+
+    const handleGameWin = () => {
+        setShowReset(true);
     };
     return (
         <>
@@ -53,14 +55,18 @@ function App() {
             <section className={styles.bottom}>
                 <div>
                     <CardList
-                        isFlipped={isFlipped}
                         show={showCard}
                         cardItems={cardItems}
+                        onGameWin={handleGameWin}
                     />
                 </div>
-                <button onClick={handleReset} className={styles.resetBtn}>
-                    RESET
-                </button>
+                {showReset ? (
+                    <button onClick={handleReset} className={styles.resetBtn}>
+                        RESET
+                    </button>
+                ) : (
+                    <div></div>
+                )}
             </section>
         </>
     );

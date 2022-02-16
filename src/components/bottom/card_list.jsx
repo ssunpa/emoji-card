@@ -9,10 +9,10 @@ const CardList = (props) => {
         <div className={styles.list}>
             {cardList.map((items) => (
                 <CardHide
-                    isFlipped={props.isFlipped}
                     show={props.show}
                     hide={items}
                     key={items.id}
+                    onGameWin={props.onGameWin}
                 />
             ))}
         </div>
